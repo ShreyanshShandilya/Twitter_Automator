@@ -7,5 +7,5 @@ def joke(POST_ID_JOKE):
         headers = {'Accept':'application/json'}
         r = requests.get(URL , headers = headers)
         json_joke = r.json()
-        if json_joke['id'] not in POST_ID_JOKE:
+        if json_joke['id'] not in dadjokelist:
             return json_joke
