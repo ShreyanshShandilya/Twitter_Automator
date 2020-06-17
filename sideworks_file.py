@@ -20,7 +20,7 @@ def remove_image(filename):
         print("Error in deleting file")
         print(e)
 
-def hashtagteller():
+def hashtagteller(hastaglist):
     try:
         today = date.today().weekday()
         return hashtag[today]

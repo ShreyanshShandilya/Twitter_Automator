@@ -25,7 +25,7 @@ def main():
             POST_ID_JOKE = google_file.list_beautify(POST_ID_JOKE)
             REDDIT_POST_ID =  google_file.list_beautify(REDDIT_POST_ID)
             #Obtaining subreddit
-            subreddit = reddit_file.obtainaing_sub(reddit,"wallpaper")
+            subreddit = reddit_file.obtainaing_sub(reddit,sub)
             #Obtaining submission from subreddit
             submission = reddit_file.bestpost(subreddit,REDDIT_POST_ID)
             #Downloading image from submission
