@@ -14,6 +14,7 @@ def login_gsheet():
     except Exception as e:
         print(e)
 
+#Fetching data from worksheet
 def get_info(worksheet):
     print("\t-->Fetching spreadsheet")
     try:
@@ -21,14 +22,17 @@ def get_info(worksheet):
         hastaglist = worksheet.get_col(2)
         postidlist = worksheet.get_col(3)
         dadjokelist = worksheet.get_col(4)
+        email_list = worksheet.get_col(5)
         subredditlist = list_beautify(subredditlist)
         hastaglist = list_beautify(hastaglist)
         postidlist = list_beautify(postidlist)
         dadjokelist = list_beautify(dadjokelist)
-        return (subredditlist , hastaglist , postidlist , dadjokelist)
+        email_list = list_beautify(email_list)
+        return (subredditlist , hastaglist , postidlist , dadjokelist , email_list)
     except Exception as e:
         print(e)
 
+#Updating worksheet
 def update_info(postidlist , dadjokelist ,worksheet):
     print("\t-->Updating spreadsheet")
     try:
@@ -36,6 +40,7 @@ def update_info(postidlist , dadjokelist ,worksheet):
         worksheet.update_col(4,dadjokelist)
     except Exception as e:
         print(e)
+
 #Removing blank spaces
 def list_beautify(L1):
     print("\t-->Removing blank spaces")
