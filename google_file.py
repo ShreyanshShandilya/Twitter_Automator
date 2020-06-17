@@ -8,8 +8,8 @@ def login_gsheet():
         gs = pygsheets.authorize(service_file = 'google-credentials.json')
         #Open takes name of sheet as input
         sh = gs.open('heroku_twitter_mail_Database')
-        #[0] -> The first sheet
-        worksheet = sh.worksheets()[0]
+        #[1] -> The second sheet
+        worksheet = sh.worksheets()[1]
         return worksheet
     except Exception as e:
         print(e)
@@ -17,18 +17,23 @@ def login_gsheet():
 def get_info(worksheet):
     print("\t-->Fetching spreadsheet")
     try:
-        EMAIL_ID = worksheet.get_col(1)
-        POST_ID_JOKE = worksheet.get_col(2)
-        REDDIT_POST_ID = worksheet.get_col(3)
-        return (EMAIL_ID , POST_ID_JOKE , REDDIT_POST_ID)
+        subredditlist = worksheet.get_col(1)
+        hastaglist = worksheet.get_col(2)
+        postidlist = worksheet.get_col(3)
+        dadjokelist = worksheet.get_col(4)
+        subredditlist = list_beautify(subredditlist)
+        hastaglist = list_beautify(hastaglist)
+        postidlist = list_beautify(postidlist)
+        dadjokelist = list_beautify(dadjokelist)
+        return (subredditlist , hastaglist , postidlist , dadjokelist)
     except Exception as e:
         print(e)
 
-def update_info(POST_ID_JOKE , REDDIT_POST_ID , worksheet):
+def update_info(postidlist , dadjokelist ,worksheet):
     print("\t-->Updating spreadsheet")
     try:
-        worksheet.update_col(2,POST_ID_JOKE)
-        worksheet.update_col(3,REDDIT_POST_ID)
+        worksheet.update_col(3,postidlist)
+        worksheet.update_col(4,dadjokelist)
     except Exception as e:
         print(e)
 #Removing blank spaces
