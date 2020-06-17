@@ -1,7 +1,7 @@
 import os
 import wget
 import praw
-
+import datetime import date
 def download_image(url):
     print("Attempting to download image")
     try:

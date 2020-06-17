@@ -2,7 +2,7 @@ import pygsheets
 import os
 
 def login_gsheet():
-    print("\t\t***Login spreadsheet")
+    print("\t\t-->Login spreadsheet")
     try:
         #Google-crredentials.json file is created at runtime using buildpack which uses environment variable
         gs = pygsheets.authorize(service_file = 'google-credentials.json')
@@ -15,7 +15,7 @@ def login_gsheet():
         print(e)
 
 def get_info(worksheet):
-    print("spreadsheet fetch")
+    print("\t-->Fetching spreadsheet")
     try:
         EMAIL_ID = worksheet.get_col(1)
         POST_ID_JOKE = worksheet.get_col(2)
@@ -25,7 +25,7 @@ def get_info(worksheet):
         print(e)
 
 def update_info(POST_ID_JOKE , REDDIT_POST_ID , worksheet):
-    print("spreadsheet update")
+    print("\t-->Updating spreadsheet")
     try:
         worksheet.update_col(2,POST_ID_JOKE)
         worksheet.update_col(3,REDDIT_POST_ID)
@@ -33,7 +33,7 @@ def update_info(POST_ID_JOKE , REDDIT_POST_ID , worksheet):
         print(e)
 #Removing blank spaces
 def list_beautify(L1):
-    print("removing empty spaces")
+    print("\t-->Removing blank spaces")
     try:
         l1 = list()
         for i in L1:
