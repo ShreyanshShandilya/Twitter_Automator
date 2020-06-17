@@ -17,6 +17,7 @@ def text():
         submission = reddit_file.bestpost(subreddit,postidlist)
         tweet = submission.title + hashtag
         twitter_file.update_status(twitter , tweet)
+        postidlist.append(submission.id)
     except Exception as e:
         print("-->Error in post time method of main")
         print(e)
@@ -35,6 +36,7 @@ def image():
         tweet = submission.title + hashtag
         twitter_file.update_status_with_media(twitter , filename , tweet)
         sideworks_file.remove_image(filename)
+        postidlist.append(submission.id)
 
     except Exception as e:
         print("-->Error in post time method of main")
@@ -48,7 +50,7 @@ def main():
                 time.sleep(3600)
             text()
             time.sleep(3600)
-            
+
     except Exception as e:
         print("-->Error in driver function")
         print(e)
