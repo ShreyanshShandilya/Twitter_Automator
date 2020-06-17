@@ -5,7 +5,10 @@ import datetime import date
 def download_image(url):
     print("Attempting to download image")
     try:
-        filename = wget.download(url)
+        if (url.startswith("https://i")):
+            filename = wget.download(url)
+        else:
+            filename = None
         return filename
     except Exception as e:
         print("Error in downloading image")
