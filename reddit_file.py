@@ -14,7 +14,7 @@ def login_reddit():
 def obtainaing_sub(reddit,sub):
     print("reddit subreddit")
     try:
-        subreddit = reddit.subreddit(sub)
+        subreddit = reddit.subreddit(subreddit)
         return subreddit
     except Exception as e:
         print("Exception in obtainaing subreddit")
@@ -27,7 +27,7 @@ def bestpost(subreddit,postidlist):
             posts = [post for post in subreddit.hot(limit=10)]
             random_post_number = random.randint(0, 10)
             submission = posts[random_post_number]
-            if submission.id not in REDDIT_POST_ID:
+            if submission.id not in postidlist:
                 return submission
     except Exception as e:
         print(e)

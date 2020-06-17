@@ -1,7 +1,7 @@
 import os
 import wget
 import praw
-import datetime import date
+
 def download_image(url):
     print("Attempting to download image")
     try:
@@ -22,11 +22,3 @@ def remove_image(filename):
     except Exception as e:
         print("Error in deleting file")
         print(e)
-
-def hashtagteller(hastaglist):
-    try:
-        today = date.today().weekday()
-        return hashtag[today]
-    except Exception as e:
-        print("Error in hashtagteller function")
-        print (e)

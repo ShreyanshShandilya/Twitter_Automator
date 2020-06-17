@@ -1,7 +1,7 @@
 import requests
 import os
 
-def joke(POST_ID_JOKE):
+def joke(dadjokelist):
     while True:
         URL = "https://icanhazdadjoke.com/"
         headers = {'Accept':'application/json'}

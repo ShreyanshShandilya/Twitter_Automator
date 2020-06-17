@@ -15,7 +15,9 @@ def login_twitter():
 def update_status(twitter,tweet):
     print("twitter update status")
     try:
-        twitter.update_status(tweet[:280])
+        if(len(tweet) > 280):
+            tweet = tweet[:277]+"..."
+        twitter.update_status(tweet)
     except Exception as e:
         print("Exception in updating status on twitter")
         print(e)
@@ -23,7 +25,9 @@ def update_status(twitter,tweet):
 def update_status_with_media(twitter,filename,tweet):
     print("twitter update media")
     try:
-        twitter.update_with_media(filename,status=tweet[:280])
+        if(len(tweet) > 280):
+            tweet = tweet[:277]+"..."
+        twitter.update_with_media(filename,status=tweet)
     except Exception as e:
         print("Exception in posting image on twitter")
         print(e)
