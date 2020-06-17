@@ -19,3 +19,11 @@ def remove_image(filename):
     except Exception as e:
         print("Error in deleting file")
         print(e)
+
+def hashtagteller():
+    try:
+        today = date.today().weekday()
+        return hashtag[today]
+    except Exception as e:
+        print("Error in hashtagteller function")
+        print (e)
