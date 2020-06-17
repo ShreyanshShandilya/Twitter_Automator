@@ -24,8 +24,8 @@ def bestpost(subreddit,REDDIT_POST_ID):
     print("reddit post")
     try:
         while True:
-            posts = [post for post in subreddit.hot(limit=30)]
-            random_post_number = random.randint(0, 30)
+            posts = [post for post in subreddit.hot(limit=10)]
+            random_post_number = random.randint(0, 10)
             submission = posts[random_post_number]
             if submission.id not in REDDIT_POST_ID:
                 return submission
