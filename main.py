@@ -9,7 +9,7 @@ import random
 import time
 
 def main():
-    print("\t\t\t ***MAIN FUNCTION***")
+    print("\t\t---> Main Function")
     try:
         while True:
             #Phase1
@@ -19,12 +19,10 @@ def main():
             twitter = twitter_file.login_twitter()
             #Phase2
             #Fetching emailid postid and redditpostid from gsheet
-            EMAIL_ID , POST_ID_JOKE , REDDIT_POST_ID =google_file.get_info(worksheet)
-            #Removing blank spaces from list
-            EMAIL_ID = google_file.list_beautify(EMAIL_ID)
-            POST_ID_JOKE = google_file.list_beautify(POST_ID_JOKE)
-            REDDIT_POST_ID =  google_file.list_beautify(REDDIT_POST_ID)
+            subredditlist , hastaglist , postidlist , dadjokelist , email_list = google_file.get_info(worksheet)
             #Obtaining subreddit
+            random_subreddit_number = random.randint(0, 7)
+            sub = subredditlist[random_subreddit_number]
             subreddit = reddit_file.obtainaing_sub(reddit,sub)
             #Obtaining submission from subreddit
             submission = reddit_file.bestpost(subreddit,REDDIT_POST_ID)
@@ -35,7 +33,8 @@ def main():
                 submission = reddit_file.bestpost(subreddit,REDDIT_POST_ID)
                 filename = sideworks_file.download_image(submission.url)
             #Uploading the file to twitter
-            twitter_file.update_status_with_media(twitter , filename , (submission.title +"u/" +submission.author.name +" #wallpaper"))
+            if(filename is not None):
+                twitter_file.update_status_with_media(twitter , filename , tweet)
             #Adding submission id to postid list
             REDDIT_POST_ID.append(submission.id)
             #Fetching joke from API

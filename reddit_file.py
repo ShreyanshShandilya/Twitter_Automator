@@ -20,7 +20,7 @@ def obtainaing_sub(reddit,sub):
         print("Exception in obtainaing subreddit")
         print(e)
 
-def bestpost(subreddit,REDDIT_POST_ID):
+def bestpost(subreddit,postidlist):
     print("reddit post")
     try:
         while True:
