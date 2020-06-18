@@ -2,7 +2,6 @@ import google_file
 import reddit_file
 import twitter_file
 import sideworks_file
-import joke_file
 import os
 import random
 import time
