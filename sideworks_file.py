@@ -5,10 +5,7 @@ import praw
 def download_image(url):
     print("-->Attempting to download image")
     try:
-        if (url.startswith("https://i")):
-            filename = wget.download(url)
-        else:
-            filename = None
+        filename = wget.download(url)
         return filename
     except Exception as e:
         print("<>Error in downloading image")

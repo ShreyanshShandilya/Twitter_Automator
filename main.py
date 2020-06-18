@@ -1,7 +1,6 @@
 import google_file
 import reddit_file
 import twitter_file
-import mail_file
 import sideworks_file
 import joke_file
 import os
@@ -18,7 +17,7 @@ def text():
         tweet = submission.title + hashtag
         twitter_file.update_status(twitter , tweet)
         postidlist.append(submission.id)
-        google_file.update_info(postidlist , dadjokelist , worksheet)
+        google_file.update_info(postidlist  , worksheet)
     except Exception as e:
         print("-->Error in post time method of main")
         print(e)
@@ -38,7 +37,7 @@ def image():
         twitter_file.update_status_with_media(twitter , filename , tweet)
         sideworks_file.remove_image(filename)
         postidlist.append(submission.id)
-        google_file.update_info(postidlist , dadjokelist , worksheet)
+        google_file.update_info(postidlist , worksheet)
     except Exception as e:
         print("-->Error in post time method of main")
         print(e)
@@ -59,7 +58,7 @@ def main():
 worksheet = google_file.login_gsheet()
 reddit = reddit_file.login_reddit()
 twitter = twitter_file.login_twitter()
-subredditlist , hastaglist , postidlist , dadjokelist , email_list = google_file.get_info(worksheet)
+subredditlist , hastaglist , postidlist = google_file.get_info(worksheet)
 day = datetime.today().weekday()
 hashtag = hastaglist[day]
 
