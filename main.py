@@ -26,7 +26,7 @@ def image():
 
         random_subreddit_number = random.randint(0 , 5)
         sub = subredditlist[random_subreddit_number]
-        subreddit = file.obtainaing_sub(reddit,sub)
+        subreddit = reddit_file.obtainaing_sub(reddit,sub)
         submission = reddit_file.bestpost(subreddit,postidlist)
         filename = sideworks_file.download_image(submission.url)
         while (os.stat(filename).st_size > 3000000):
@@ -46,10 +46,10 @@ def main():
         while True:
             for i in range(4):
                 image()
-                time.sleep(20)
-            time.sleep(30)
+                time.sleep(10800)
+            time.sleep(3600)
             text()
-            time.sleep(40)
+            time.sleep(39600)
     except Exception as e:
         print("-->Error in driver function")
         print(e)
@@ -60,6 +60,6 @@ twitter = twitter_file.login_twitter()
 subredditlist , hastaglist , postidlist = google_file.get_info(worksheet)
 day = datetime.today().weekday()
 hashtag = hastaglist[day]
-
+print("Let start:")
 if __name__ =="__main__":
     main()
