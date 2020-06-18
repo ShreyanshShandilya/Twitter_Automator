@@ -51,7 +51,7 @@ def main():
             text()
             time.sleep(39600)
     except Exception as e:
-        print("-->Error in driver function")
+        print("-->Error in the driver function")
         print(e)
 
 worksheet = google_file.login_gsheet()
