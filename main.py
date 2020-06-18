@@ -47,10 +47,10 @@ def main():
         while True:
             for i in range(4):
                 image()
-                time.sleep(10800)
-            time.sleep(3600)
+                time.sleep(20)
+            time.sleep(30)
             text()
-            time.sleep(39600)
+            time.sleep(40)
     except Exception as e:
         print("-->Error in driver function")
         print(e)
