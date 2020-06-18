@@ -3,7 +3,7 @@ import wget
 import praw
 
 def download_image(url):
-    print("Attempting to download image")
+    print("-->Attempting to download image")
     try:
         if (url.startswith("https://i")):
             filename = wget.download(url)
@@ -11,14 +11,14 @@ def download_image(url):
             filename = None
         return filename
     except Exception as e:
-        print("Error in downloading image")
+        print("<>Error in downloading image")
         print(e)
 
 def remove_image(filename):
-    print("Attempting to remove image")
+    print("-->Attempting to remove image")
     try:
         if (filename is not None):
             os.remove(filename)
     except Exception as e:
-        print("Error in deleting file")
+        print("<>Error in deleting file")
         print(e)

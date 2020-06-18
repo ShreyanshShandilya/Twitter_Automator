@@ -3,7 +3,7 @@ import random
 import os
 
 def login_reddit():
-    print("\t\t***Login reddit")
+    print("-->Login reddit")
     try:
         reddit = praw.Reddit(username = os.environ['username'] , password = os.environ['password'] , client_id = os.environ['client_id'] , client_secret = os.environ['client_secret'] , user_agent = "Ninebit")
         return reddit
@@ -12,16 +12,16 @@ def login_reddit():
         print(e)
 
 def obtainaing_sub(reddit,sub):
-    print("reddit subreddit")
+    print("-->Reddit subreddit")
     try:
         subreddit = reddit.subreddit(subreddit)
         return subreddit
     except Exception as e:
-        print("Exception in obtainaing subreddit")
+        print("<>Exception in obtainaing subreddit")
         print(e)
 
 def bestpost(subreddit,postidlist):
-    print("reddit post")
+    print("-->Reddit post")
     try:
         while True:
             posts = [post for post in subreddit.hot(limit=10)]
@@ -30,5 +30,5 @@ def bestpost(subreddit,postidlist):
             if submission.id not in postidlist:
                 return submission
     except Exception as e:
+        print("<>Exception in finding best post")
         print(e)
-        print("Exception in finding best post")

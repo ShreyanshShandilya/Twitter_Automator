@@ -2,7 +2,7 @@ import pygsheets
 import os
 
 def login_gsheet():
-    print("\t\t-->Login spreadsheet")
+    print("-->Login spreadsheet")
     try:
         #Google-crredentials.json file is created at runtime using buildpack which uses environment variable
         gs = pygsheets.authorize(service_file = 'google-credentials.json')
@@ -12,11 +12,12 @@ def login_gsheet():
         worksheet = sh.worksheets()[1]
         return worksheet
     except Exception as e:
+        print("<>Exception in login google sheet function")
         print(e)
 
 #Fetching data from worksheet
 def get_info(worksheet):
-    print("\t-->Fetching spreadsheet")
+    print("-->Fetching spreadsheet")
     try:
         subredditlist = worksheet.get_col(1)
         hastaglist = worksheet.get_col(2)
@@ -30,20 +31,22 @@ def get_info(worksheet):
         email_list = list_beautify(email_list)
         return (subredditlist , hastaglist , postidlist , dadjokelist , email_list)
     except Exception as e:
+        print("<>Exception in fetching the worksheet")
         print(e)
 
 #Updating worksheet
 def update_info(postidlist , dadjokelist ,worksheet):
-    print("\t-->Updating spreadsheet")
+    print("-->Updating spreadsheet")
     try:
         worksheet.update_col(3,postidlist)
         worksheet.update_col(4,dadjokelist)
     except Exception as e:
+        print("<>Exception in updating worksheet")
         print(e)
 
 #Removing blank spaces
 def list_beautify(L1):
-    print("\t-->Removing blank spaces")
+    print("-->Removing blank spaces")
     try:
         l1 = list()
         for i in L1:
@@ -51,4 +54,5 @@ def list_beautify(L1):
                 l1.append(i)
         return l1
     except Exception as e:
+        print("<>Exception in list beautify method")
         print(e)
