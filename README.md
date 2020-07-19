@@ -1,6 +1,6 @@
 With about 15% of Twitter being composed of bots, I wanted to try my hand at it.
 
-# Twiiter Profile: [NineBit](https://twitter.com/__NineBit)
+# Twitter Profile: [NineBit](https://twitter.com/__NineBit)
 
 ## Disclaimer
 
