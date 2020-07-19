@@ -9,12 +9,13 @@ from datetime import datetime
 
 def text():
     try:
-        random_subreddit_number = random.randint(6 , 7)
+        random_subreddit_number = random.randint(10 , 12)
         sub = subredditlist[random_subreddit_number]
         subreddit = reddit_file.obtainaing_sub(reddit,sub)
         submission = reddit_file.bestpost(subreddit,postidlist)
         tweet = submission.title + hashtag
-        twitter_file.update_status(twitter , tweet)
+        li = twitter_file.status_format(tweet)
+        twitter_file.update_status(twitter , li)
         postidlist.append(submission.id)
         google_file.update_info(postidlist  , worksheet)
     except Exception as e:
@@ -24,7 +25,7 @@ def text():
 def image():
     try:
 
-        random_subreddit_number = random.randint(0 , 5)
+        random_subreddit_number = random.randint(0 , 9)
         sub = subredditlist[random_subreddit_number]
         subreddit = reddit_file.obtainaing_sub(reddit,sub)
         submission = reddit_file.bestpost(subreddit,postidlist)
@@ -44,14 +45,13 @@ def image():
 def main():
     try:
         while True:
-            for i in range(4):
+            for i in range(12):
                 image()
-                time.sleep(10800)
-            time.sleep(3600)
+                time.sleep(3600)
             text()
-            time.sleep(39600)
+            time.sleep(3600)
     except Exception as e:
-        print("-->Error in the driver function")
+        print("-->Error in driver function")
         print(e)
 
 worksheet = google_file.login_gsheet()
