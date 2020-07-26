@@ -9,7 +9,7 @@ I hold no liability for what you do with this script or what happens to you by u
 
 ### This repo teaches you how to: 
 + Make a Twitter bot using [Tweepy](https://www.tweepy.org/) (An easy-to-use Python library for accessing the Twitter API).
-+ Make a Reddit Bot using the [PRAW](https://praw.readthedocs.io/en/latest/) (The Python Reddit API Wrapper) Python package.
++ Use [PRAW](https://praw.readthedocs.io/en/latest/) (The Python Reddit API Wrapper) Python package.
 + Deploy your Reddit Bot on [Heroku](https://www.heroku.com/) - A platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud
 
 In this repo, I have made a twitter bot that cross post content between reddit's subreddit and Twitter.
